@@ -1,0 +1,8 @@
+target/
+
+src/main/resources/templates/index.html
+src/main/resources/templates/callback.html
+
+src/main/resources/templates/callback.html
+
+src/main/resources/static/assets/angular/
