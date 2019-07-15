@@ -1,0 +1,23 @@
+<section>
+    <div class="d-flex flex-row">
+        <div class="title-box">
+            <h2 class="title">Playlist: <span th:text="${playlist.name}"></span></h2>
+            
+        </div>
+    </div>
+    
+    <div>
+    <h4>Songs:</h4>
+	    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+        </tr>
+        <tr th:each="emp : ${playlist.songs}">
+            <td th:text="${emp.id}"></td>
+            <td th:text="${emp.name}"></td>
+        </tr>
+    </table>
+    </div>
+    
+</section>

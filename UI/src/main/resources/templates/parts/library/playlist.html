@@ -1,7 +1,6 @@
 <section>
     <div class="d-flex flex-row">
         <div class="title-box">
-            <h6 class="sub-title inactive-color">Featured</h6>
             <h2 class="title">Playlists</h2>
         </div>
     </div>
@@ -14,6 +13,7 @@
 		  </div>
 		</div>
     </div>
+    
     <div>
 	    <table>
         <tr>
@@ -25,6 +25,6 @@
             <td><a th:href="@{/playlist/detail/{pid}(pid=${emp.id})}" th:text="${emp.name}"></a></td>
         </tr>
     </table>
-
     </div>
+    
 </section>

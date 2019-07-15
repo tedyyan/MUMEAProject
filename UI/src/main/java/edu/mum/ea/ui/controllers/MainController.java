@@ -22,10 +22,7 @@ public class MainController {
         return "parts/library/songs";
     }
 
-    @GetMapping("/playlist")
-    public String playlistPage(Model model) {
-        return "parts/library/playlist";
-    }
+    
 
     @GetMapping("/artists")
     public String artistsPage(Model model) {
