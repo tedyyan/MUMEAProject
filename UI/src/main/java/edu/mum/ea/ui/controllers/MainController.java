@@ -1,4 +1,4 @@
-package com.bolsadeideas.springboot.app.controllers;
+package edu.mum.ea.ui.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
