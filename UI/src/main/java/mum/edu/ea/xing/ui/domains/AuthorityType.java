@@ -1,4 +1,4 @@
-package edu.mum.ea.xing.ui.domains;
+package mum.edu.ea.xing.ui.domains;
 
 public enum AuthorityType {
     ADMIN("ADMIN"), USER("USER");

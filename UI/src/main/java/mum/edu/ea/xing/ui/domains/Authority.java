@@ -8,6 +8,6 @@ import java.util.List;
 public class Authority {
     private Long id;
 
-    private edu.mum.ea.xing.ui.domains.AuthorityType AuthName;
+    private AuthorityType AuthName;
 
 }
