@@ -10,16 +10,23 @@ eureka:
       startup: ${random.int}    #needed to trigger info and endpoint update after restart
   client:
     registryFetchIntervalSeconds: 5
-    #registerWithEureka: false
-    #fetchRegistry: false
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       
+      
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8111        
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"  
   endpoint:
     health:
       show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
