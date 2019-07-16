@@ -10,7 +10,7 @@
                         <div class="media current-item">
                             <div class="mr-3 song-poster sm">
                                 <img class="box-rounded-sm" th:src="${currentSong.image.url}" alt="" th:if="${currentSong.image != null}">
-                                <img class="box-rounded-sm" src="../assets/images/hot-song/hot-14.jpg" alt="" th:if="${currentSong.image == null}">
+                                <img class="box-rounded-sm" th:src="@{/assets/images/hot-song/hot-14.jpg}" alt="" th:if="${currentSong.image == null}">
                             </div>
                             <div class="des">
                                 <div class="jp-title h5 mb-1" aria-label="title">
@@ -38,7 +38,7 @@
                         <div class="m-auto d-flex flex-row lh-0 player-controls align-items-center fs-3">
                             <div class="current-item d-block d-sm-none">
                                 <div class="mr-3 song-poster sm">
-                                    <img class="box-rounded-sm" src="../assets/images/hot-song/hot-14.jpg" alt="">
+                                    <img class="box-rounded-sm" th:src="@{/assets/images/hot-song/hot-14.jpg}" alt="">
                                 </div>
                             </div>
                             <a class="jp-shuffle inactive-color mr-4 d-none d-md-block" role="button"
@@ -129,7 +129,7 @@
 <!--                </div>-->
 <!--                <div class="media current-item">-->
 <!--                    <div class="song-poster mb-4 col-4 p-0">-->
-<!--                        <img class="box-rounded-sm" src="../assets/images/playlists/playlist-2.jpg" alt="">-->
+<!--                        <img class="box-rounded-sm" th:src="@{/assets/images/playlists/playlist-2.jpg}" alt="">-->
 <!--                    </div>-->
 <!--                    <div class="player-details col-8 pr-0 pl-20 pl-e-lg-30">-->
 <!--                        <h3 class="h2 mt-3 mb-3 jp-title">What Makes You Country</h3>-->

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(value = "http://localhost:8080")
+@CrossOrigin(value = "http://localhost:3200")
 public class SpotifyRestController {
 
     @GetMapping("/refreshToken")

@@ -9,3 +9,6 @@
 #      period:
 #
 ## Static resources reloading during development
+
+server:
+  port: 3200

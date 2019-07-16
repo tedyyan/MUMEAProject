@@ -11,19 +11,19 @@
         <meta name="author" content="">
         <title>Adonis Demo-01 | Home</title>
         <link rel="shortcut icon" href="favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="../assets/icon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../assets/icon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../assets/icon/favicon-16x16.png">
-        <link rel="manifest" href="../assets/icon/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" th:href="@{/assets/icon/apple-touch-icon.png}">
+        <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/icon/favicon-32x32.png}">
+        <link rel="icon" type="image/png" sizes="16x16" th:href="@{/assets/icon/favicon-16x16.png}">
+        <link rel="manifest" th:href="@{/assets/icon/site.webmanifest}">
         <meta name="theme-color" content="#ffffff">
 
         <!-- Bootstrap core CSS -->
-        <link href="../assets/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link th:href="@{/assets/vendors/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link href="../assets/vendors/owl/css/owl.carousel.min.css" rel="stylesheet">
-        <link href="../assets/vendors/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
-        <link href="../assets/css/adonis-dark.css" rel="stylesheet">
+        <link th:href="@{/assets/vendors/owl/css/owl.carousel.min.css}" rel="stylesheet">
+        <link th:href="@{/assets/vendors/perfect-scrollbar/css/perfect-scrollbar.css}" rel="stylesheet">
+        <link th:href="@{/assets/css/adonis-dark.css}" rel="stylesheet">
     </head>
     <body>
         <div id="wrap" class="light main-wrap clearfix">
@@ -297,7 +297,7 @@
                                     <h5>Notification</h5>
                                     <div class="media notification">
                                         <div class="user-thumb mr-3 rounded-thumb">
-                                            <img src="../assets/images/browse/browse-overview-6.jpg" alt="">
+                                            <img th:src="@{/assets/images/browse/browse-overview-6.jpg}" alt="">
                                         </div>
                                         <div class="notification-desc">
                                             <p>New Album from <a href="#" class="active-color">Brenda Lee</a></p>
@@ -311,7 +311,7 @@
                                     </div>
                                     <div class="media notification">
                                         <div class="user-thumb mr-3 rounded-thumb">
-                                            <img src="../assets/images/playlists/playlist-15.jpg" alt="">
+                                            <img th:src="@{/assets/images/playlists/playlist-15.jpg}" alt="">
                                         </div>
                                         <div class="notification-desc">
                                             <p>New Album from <a href="#" class="active-color">Adm Smith</a></p>
@@ -325,7 +325,7 @@
                                     </div>
                                     <div class="media notification">
                                         <div class="user-thumb mr-3 rounded-thumb">
-                                            <img src="../assets/images/browse/browse-overview-5.jpg" alt="">
+                                            <img th:src="@{/assets/images/browse/browse-overview-5.jpg}" alt="">
                                         </div>
                                         <div class="notification-desc">
                                             <p>New Album from <a href="#" class="active-color">Brenda Lee</a></p>
@@ -343,7 +343,7 @@
                                 <a class="nav-link dropdown-toggle w-nowrap pr-0" href="#" id="dropdownUserSettings"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="flex-row d-inline-flex">
-                                        <div class="user"><img class="rounded-circle" src="../assets/images/user-thumb-1.jpg"
+                                        <div class="user"><img class="rounded-circle" th:src="@{/assets/images/user-thumb-1.jpg}"
                                                                alt=""></div>
                                         <span class="ml-2 mt-2 fs-1 d-none d-lg-block">Jont Henrry</span>
                                     </div>
@@ -352,10 +352,10 @@
                                      aria-labelledby="dropdownUserSettings">
                                     <div class="settings-top">
                                         <div class="user-cover-image">
-                                            <img src="../assets/images/user/cover.jpg" alt="">
+                                            <img th:src="@{/assets/images/user/cover.jpg}" alt="">
                                         </div>
                                         <div class="user-profile-image rounded-circle">
-                                            <img src="../assets/images/browse/browse-overview-6.jpg" alt="">
+                                            <img th:src="@{/assets/images/browse/browse-overview-6.jpg}" alt="">
                                         </div>
                                     </div>
                                     <div class="settings-bottom">
@@ -496,7 +496,7 @@
                                         <div class="footer-album-list music-img-box-cont-sm">
                                             <div class="img-box-horizontal music-img-box img-box-horizontal-style-2">
                                                 <div class="img-box img-box-sm box-rounded-sm">
-                                                    <img src="../assets/images/hot-song/hot-11.jpg" alt="">
+                                                    <img th:src="@{/assets/images/hot-song/hot-11.jpg}" alt="">
                                                 </div>
                                                 <div class="des">
                                                     <h6 class="title"><a href="#">Do You Hear What I Hear</a></h6>
@@ -515,7 +515,7 @@
                                             </div>
                                             <div class="img-box-horizontal music-img-box img-box-horizontal-style-2">
                                                 <div class="img-box img-box-sm box-rounded-sm">
-                                                    <img src="../assets/images/hot-song/hot-9.jpg" alt="">
+                                                    <img th:src="@{/assets/images/hot-song/hot-9.jpg}" alt="">
                                                 </div>
                                                 <div class="des">
                                                     <h6 class="title"><a href="#">O Come, All Ye Faithful</a></h6>
@@ -534,7 +534,7 @@
                                             </div>
                                             <div class="img-box-horizontal music-img-box img-box-horizontal-style-2">
                                                 <div class="img-box img-box-sm box-rounded-sm">
-                                                    <img src="../assets/images/hot-song/hot-8.jpg" alt="">
+                                                    <img th:src="@{/assets/images/hot-song/hot-8.jpg}" alt="">
                                                 </div>
                                                 <div class="des">
                                                     <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -559,15 +559,15 @@
                                         <h5 class="widget-title">Go Moblie</h5>
                                         <div class="mobile-apps">
                                             <ul class="list-inline d-inline-flex mb-4">
-                                                <li class="mr-2"><img src="../assets/images/brand-logo/apple-logo.png" alt="">
+                                                <li class="mr-2"><img th:src="@{/assets/images/brand-logo/apple-logo.png}" alt="">
                                                 </li>
-                                                <li><img src="../assets/images/brand-logo/google-apps.png" alt=""></li>
+                                                <li><img th:src="@{/assets/images/brand-logo/google-apps.png}" alt=""></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="widget">
                                         <label class="pr-4">Language</label>
-                                        <img src="../assets/images/brand-logo/lang-flag.png" alt="">
+                                        <img th:src="@{/assets/images/brand-logo/lang-flag.png}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -671,7 +671,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-2.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-2.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Country girl shake it for me</a></h6>
@@ -689,7 +689,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-1.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-1.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">The Separation</a></h6>
@@ -707,7 +707,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-3.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-3.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Stirring of a fool</a></h6>
@@ -725,7 +725,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-4.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-4.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -743,7 +743,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-5.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-5.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Let You Down</a></h6>
@@ -761,7 +761,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-6.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-6.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -779,7 +779,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-7.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-7.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">O Come, All Ye Faithful</a></h6>
@@ -797,7 +797,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-8.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-8.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Fetty Wap Ft Monty</a></h6>
@@ -815,7 +815,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-8.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-8.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Fetty Wap Ft Monty</a></h6>
@@ -833,7 +833,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-9.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-9.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Do You Hear What I Hear</a></h6>
@@ -851,7 +851,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-10.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-10.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Look What You Made Me Do</a></h6>
@@ -869,7 +869,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-11.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-11.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Carol of the Bells</a></h6>
@@ -887,7 +887,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-12.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-12.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Carol of the Bells</a></h6>
@@ -905,7 +905,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-13.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-13.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">You're A Mean One, Mr. Grinch</a></h6>
@@ -923,7 +923,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-14.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-14.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Joy To The World</a></h6>
@@ -941,7 +941,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-15.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-15.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Something Just Like This</a></h6>
@@ -959,7 +959,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-1.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-1.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">The Separation</a></h6>
@@ -977,7 +977,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-3.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-3.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Stirring of a fool</a></h6>
@@ -995,7 +995,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-2.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-2.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Country girl shake it for me</a></h6>
@@ -1013,7 +1013,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-4.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-4.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -1031,7 +1031,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-5.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-5.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Let You Down</a></h6>
@@ -1049,7 +1049,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-1.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-1.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">The Separation</a></h6>
@@ -1067,7 +1067,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-2.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-2.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Country girl shake it for me</a></h6>
@@ -1085,7 +1085,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-4.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-4.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -1103,7 +1103,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-5.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-5.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Let You Down</a></h6>
@@ -1121,7 +1121,7 @@
                                 <div class="col-auto">
                                     <div class="img-box-horizontal music-img-box h-g-bg">
                                         <div class="img-box img-box-sm box-rounded-sm">
-                                            <img src="../assets/images/hot-song/hot-4.jpg" alt="">
+                                            <img th:src="@{/assets/images/hot-song/hot-4.jpg}" alt="">
                                         </div>
                                         <div class="des">
                                             <h6 class="title"><a href="#">Nothings into Somethings</a></h6>
@@ -1143,7 +1143,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-44.jpg" data-2x="assets/images/new-releases/new-releases-44@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-44.jpg}" data-2x="assets/images/new-releases/new-releases-44@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1160,7 +1160,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-43.jpg" data-2x="assets/images/new-releases/new-releases-43@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-43.jpg}" data-2x="assets/images/new-releases/new-releases-43@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1177,7 +1177,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-42.jpg" data-2x="assets/images/new-releases/new-releases-42@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-42.jpg}" data-2x="assets/images/new-releases/new-releases-42@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1194,7 +1194,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-41.jpg" data-2x="assets/images/new-releases/new-releases-41@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-41.jpg}" data-2x="assets/images/new-releases/new-releases-41@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1211,7 +1211,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-40.jpg" data-2x="assets/images/new-releases/new-releases-40@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-40.jpg}" data-2x="assets/images/new-releases/new-releases-40@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1228,7 +1228,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-39.jpg" data-2x="assets/images/new-releases/new-releases-39@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-39.jpg}" data-2x="assets/images/new-releases/new-releases-39@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1245,7 +1245,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-38.jpg" data-2x="assets/images/new-releases/new-releases-38@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-38.jpg}" data-2x="assets/images/new-releases/new-releases-38@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1262,7 +1262,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-37.jpg" data-2x="assets/images/new-releases/new-releases-37@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-37.jpg}" data-2x="assets/images/new-releases/new-releases-37@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1279,7 +1279,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-36.jpg" data-2x="assets/images/new-releases/new-releases-36@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-36.jpg}" data-2x="assets/images/new-releases/new-releases-36@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1296,7 +1296,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-35.jpg" data-2x="assets/images/new-releases/new-releases-35@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-35.jpg}" data-2x="assets/images/new-releases/new-releases-35@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1313,7 +1313,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-34.jpg" data-2x="assets/images/new-releases/new-releases-34@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-34.jpg}" data-2x="assets/images/new-releases/new-releases-34@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1330,7 +1330,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-33.jpg" data-2x="assets/images/new-releases/new-releases-33@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-33.jpg}" data-2x="assets/images/new-releases/new-releases-33@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1347,7 +1347,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-32.jpg" data-2x="assets/images/new-releases/new-releases-32@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-32.jpg}" data-2x="assets/images/new-releases/new-releases-32@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1364,7 +1364,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-31.jpg" data-2x="assets/images/new-releases/new-releases-31@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-31.jpg}" data-2x="assets/images/new-releases/new-releases-31@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1381,7 +1381,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-30.jpg" data-2x="assets/images/new-releases/new-releases-30@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-30.jpg}" data-2x="assets/images/new-releases/new-releases-30@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1398,7 +1398,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-29.jpg" data-2x="assets/images/new-releases/new-releases-29@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-29.jpg}" data-2x="assets/images/new-releases/new-releases-29@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1415,7 +1415,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-28.jpg" data-2x="assets/images/new-releases/new-releases-28@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-28.jpg}" data-2x="assets/images/new-releases/new-releases-28@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1432,7 +1432,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-27.jpg" data-2x="assets/images/new-releases/new-releases-27@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-27.jpg}" data-2x="assets/images/new-releases/new-releases-27@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1449,7 +1449,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-26.jpg" data-2x="assets/images/new-releases/new-releases-26@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-26.jpg}" data-2x="assets/images/new-releases/new-releases-26@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1466,7 +1466,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-25.jpg" data-2x="assets/images/new-releases/new-releases-25@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-25.jpg}" data-2x="assets/images/new-releases/new-releases-25@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1483,7 +1483,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-24.jpg" data-2x="assets/images/new-releases/new-releases-24@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-24.jpg}" data-2x="assets/images/new-releases/new-releases-24@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1500,7 +1500,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-23.jpg" data-2x="assets/images/new-releases/new-releases-23@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-23.jpg}" data-2x="assets/images/new-releases/new-releases-23@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1517,7 +1517,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-22.jpg" data-2x="assets/images/new-releases/new-releases-22@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-22.jpg}" data-2x="assets/images/new-releases/new-releases-22@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1534,7 +1534,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-21.jpg" data-2x="assets/images/new-releases/new-releases-21@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-21.jpg}" data-2x="assets/images/new-releases/new-releases-21@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1551,7 +1551,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-20.jpg" data-2x="assets/images/new-releases/new-releases-20@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-20.jpg}" data-2x="assets/images/new-releases/new-releases-20@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1568,7 +1568,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-19.jpg" data-2x="assets/images/new-releases/new-releases-19@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-19.jpg}" data-2x="assets/images/new-releases/new-releases-19@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1585,7 +1585,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-18.jpg" data-2x="assets/images/new-releases/new-releases-18@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-18.jpg}" data-2x="assets/images/new-releases/new-releases-18@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1602,7 +1602,7 @@
                                 <div class="col-auto">
                                     <div class="music-img-box mb-e-30 mb-e-lg-40">
                                         <div class="img-box box-rounded-sm">
-                                            <img class="retina" src="../assets/images/new-releases/new-releases-17.jpg" data-2x="assets/images/new-releases/new-releases-17@2x.jpg" alt="">
+                                            <img class="retina" th:src="@{/assets/images/new-releases/new-releases-17.jpg}" data-2x="assets/images/new-releases/new-releases-17@2x.jpg}" alt="">
                                             <div class="hover-state">
                                                 <div class="absolute-bottom-left pl-e-20 pb-e-20">
                                                     <span class="pointer play-btn-dark round-btn"><i class="play-icon"></i></span>
@@ -1629,67 +1629,28 @@
         <!-- Bootstrap core JavaScript
 ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="../assets/vendors/jquery/jquery.min.js"></script>
-        <script src="../assets/vendors/bootstrap/js/popper.min.js"></script>
-        <script src="../assets/vendors/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<!--        <script src="../assets/vendors/jplayer/jquery.jplayer.min.js"></script>-->
-<!--        <script src="../assets/vendors/jplayer/jplayer.playlist.js"></script>-->
-        <script src="../assets/vendors/owl/js/owl.carousel.min.js"></script>
-        <script src="../assets/vendors/anime/anime.min.js"></script>
-        <script src="../assets/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
-        <script src="../assets/vendors/masonry/masonry.pkgd.min.js"></script>
-        <script src="../assets/vendors/history/jquery.history.js"></script>
-        <script src="../assets/js/bootstrap-hover-menu.js"></script>
-        <script src="../assets/js/dropdown-menu.js"></script>
+        <script th:src="@{/assets/vendors/jquery/jquery.min.js}"></script>
+        <script th:src="@{/assets/vendors/bootstrap/js/popper.min.js}"></script>
+        <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/assets/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
+<!--        <script th:src="@{/assets/vendors/jplayer/jquery.jplayer.min.js}"></script>-->
+<!--        <script th:src="@{/assets/vendors/jplayer/jplayer.playlist.js}"></script>-->
+        <script th:src="@{/assets/vendors/owl/js/owl.carousel.min.js}"></script>
+        <script th:src="@{/assets/vendors/anime/anime.min.js}"></script>
+        <script th:src="@{/assets/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js}"></script>
+        <script th:src="@{/assets/vendors/masonry/masonry.pkgd.min.js}"></script>
+        <script th:src="@{/assets/vendors/history/jquery.history.js}"></script>
+        <script th:src="@{/assets/js/bootstrap-hover-menu.js}"></script>
+        <script th:src="@{/assets/js/dropdown-menu.js}"></script>
         <script src="https://sdk.scdn.co/spotify-player.js"></script>
-        <!--<script src="../assets/js/app-all.js"></script>
+        <!--<script th:src="@{/assets/js/app-all.js}"></script>
 -->
-        <script src="../assets/js/bootstrap-hover-menu.js"></script>
-        <script src="../assets/js/player.js"></script>
-        <script src="../assets/js/viewport.js"></script>
-        <script src="../assets/js/effects.js"></script>
-        <script src="../assets/js/dropdown-menu.js"></script>
-        <script src="../assets/js/app.js"></script>
-<!--        <script type="text/javascript">-->
-<!--            window.onSpotifyWebPlaybackSDKReady = () => {-->
-<!--                const token = 'BQBeQXuaXBS0HxVhIgH6rTJVXE-C7msCH9hQ0CW8RRz2Iy1gtzH37XIaBRuQ6FVHa52IJLY9XkrlhswGPFPsWYrzykNSvwFLLhQAgeS3_FfETwd9z4sO9wY2gettS1oTDv3uOZQMBpIVqg4JyOweMItbA6wDM4sCwWGlsmRg9qrJMp9ZtTcAfG_bDV9d';-->
-<!--                const player = new Spotify.Player({-->
-<!--                    name: 'Web Playback SDK Quick Start Player',-->
-<!--                    getOAuthToken: cb => { cb(token); }-->
-<!--                });-->
-
-<!--                // Error handling-->
-<!--                player.addListener('initialization_error', ({ message }) => { console.error(message); });-->
-<!--                player.addListener('authentication_error', ({ message }) => { console.error(message); });-->
-<!--                player.addListener('account_error', ({ message }) => { console.error(message); });-->
-<!--                player.addListener('playback_error', ({ message }) => { console.error(message); });-->
-
-<!--                // Playback status updates-->
-<!--                player.addListener('player_state_changed', state => { console.log(state); });-->
-
-<!--                // Ready-->
-<!--                player.addListener('ready', ({ device_id }) => {-->
-<!--                    console.log('Ready with Device ID', device_id);-->
-<!--                    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {-->
-<!--                        method: 'PUT',-->
-<!--                        body: JSON.stringify({ uris: ['spotify:track:7xGfFoTpQ2E7fRF5lN10tr'] }),-->
-<!--                        headers: {-->
-<!--                            'Content-Type': 'application/json',-->
-<!--                            'Authorization': `Bearer ${token}`-->
-<!--                        },-->
-<!--                    });-->
-<!--                });-->
-
-<!--                // Not Ready-->
-<!--                player.addListener('not_ready', ({ device_id }) => {-->
-<!--                    console.log('Device ID has gone offline', device_id);-->
-<!--                });-->
-
-<!--                // Connect to the player!-->
-<!--                player.connect();-->
-<!--            };-->
-<!--        </script>-->
+        <script th:src="@{/assets/js/bootstrap-hover-menu.js}"></script>
+        <script th:src="@{/assets/js/player.js}"></script>
+        <script th:src="@{/assets/js/viewport.js}"></script>
+        <script th:src="@{/assets/js/effects.js}"></script>
+        <script th:src="@{/assets/js/dropdown-menu.js}"></script>
+        <script th:src="@{/assets/js/app.js}"></script>
 
     </body>
 </html>

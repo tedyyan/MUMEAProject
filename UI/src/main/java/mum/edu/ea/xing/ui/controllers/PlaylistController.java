@@ -1,5 +1,6 @@
 package mum.edu.ea.xing.ui.controllers;
 
+import mum.edu.ea.xing.ui.service.SongsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,11 @@ import javax.validation.Valid;
 public class PlaylistController {
 	@Autowired
 	private PlaylistServiceProxy playlistService;
+
+	@Autowired
+	private SongsService songsService;
 	
-	@GetMapping(value = {"/", ""})
+	@GetMapping
     public String playlistPage(Model model) {
 		model.addAttribute("playlist", new Playlist());
 		model.addAttribute("list", playlistService.getAll());
@@ -26,7 +30,8 @@ public class PlaylistController {
 	@GetMapping("/detail/{id}")
     public String playlistPage(@PathVariable Long id, Model model) {
 		model.addAttribute("playlist", playlistService.get(id));
-        return "parts/library/playlist-detail";
+		model.addAttribute("currentSong",songsService.getCurrentlyPlayingTrack());
+        return "parts/library/playlist/playlist-details";
     }
 	
 	@PostMapping("/")
