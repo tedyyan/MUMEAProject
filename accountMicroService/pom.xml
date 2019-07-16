@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>mum.edu.ea.xing</groupId>
-    <artifactId>playlistmicroservice</artifactId>
+    <artifactId>accountmicroservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>playlistmicroservice</name>
     <description>Demo project for Spring Boot</description>

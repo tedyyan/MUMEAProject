@@ -22,7 +22,7 @@ public class PlaylistController {
     private SongService songService;
 
     @GetMapping("/")
-    @JsonView(Playlist.PlaylistSimpleView.class)
+//    @JsonView(Playlist.PlaylistSimpleView.class)
     public List<Playlist> getAllList() {
         return playlistService.getAll();
     }
@@ -42,7 +42,7 @@ public class PlaylistController {
 
 
     @PostMapping("/addSongToPlaylist/{p_id}")
-    public RedirectView sageSong(@PathVariable Long p_id, Song song) {
+    public RedirectView addSongToPlaylist(@PathVariable Long p_id, Song song) {
         Song s = songService.get(song.getId());
         Playlist p =  playlistService.get(p_id);
         p.getSongs().add(s);
