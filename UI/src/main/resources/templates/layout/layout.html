@@ -1632,8 +1632,8 @@
         <script src="../assets/vendors/bootstrap/js/popper.min.js"></script>
         <script src="../assets/vendors/bootstrap/js/bootstrap.min.js"></script>
         <script src="../assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-        <script src="../assets/vendors/jplayer/jquery.jplayer.min.js"></script>
-        <script src="../assets/vendors/jplayer/jplayer.playlist.js"></script>
+<!--        <script src="../assets/vendors/jplayer/jquery.jplayer.min.js"></script>-->
+<!--        <script src="../assets/vendors/jplayer/jplayer.playlist.js"></script>-->
         <script src="../assets/vendors/owl/js/owl.carousel.min.js"></script>
         <script src="../assets/vendors/anime/anime.min.js"></script>
         <script src="../assets/vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
@@ -1641,6 +1641,7 @@
         <script src="../assets/vendors/history/jquery.history.js"></script>
         <script src="../assets/js/bootstrap-hover-menu.js"></script>
         <script src="../assets/js/dropdown-menu.js"></script>
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
         <!--<script src="../assets/js/app-all.js"></script>
 -->
         <script src="../assets/js/bootstrap-hover-menu.js"></script>
@@ -1649,5 +1650,45 @@
         <script src="../assets/js/effects.js"></script>
         <script src="../assets/js/dropdown-menu.js"></script>
         <script src="../assets/js/app.js"></script>
+<!--        <script type="text/javascript">-->
+<!--            window.onSpotifyWebPlaybackSDKReady = () => {-->
+<!--                const token = 'BQBeQXuaXBS0HxVhIgH6rTJVXE-C7msCH9hQ0CW8RRz2Iy1gtzH37XIaBRuQ6FVHa52IJLY9XkrlhswGPFPsWYrzykNSvwFLLhQAgeS3_FfETwd9z4sO9wY2gettS1oTDv3uOZQMBpIVqg4JyOweMItbA6wDM4sCwWGlsmRg9qrJMp9ZtTcAfG_bDV9d';-->
+<!--                const player = new Spotify.Player({-->
+<!--                    name: 'Web Playback SDK Quick Start Player',-->
+<!--                    getOAuthToken: cb => { cb(token); }-->
+<!--                });-->
+
+<!--                // Error handling-->
+<!--                player.addListener('initialization_error', ({ message }) => { console.error(message); });-->
+<!--                player.addListener('authentication_error', ({ message }) => { console.error(message); });-->
+<!--                player.addListener('account_error', ({ message }) => { console.error(message); });-->
+<!--                player.addListener('playback_error', ({ message }) => { console.error(message); });-->
+
+<!--                // Playback status updates-->
+<!--                player.addListener('player_state_changed', state => { console.log(state); });-->
+
+<!--                // Ready-->
+<!--                player.addListener('ready', ({ device_id }) => {-->
+<!--                    console.log('Ready with Device ID', device_id);-->
+<!--                    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {-->
+<!--                        method: 'PUT',-->
+<!--                        body: JSON.stringify({ uris: ['spotify:track:7xGfFoTpQ2E7fRF5lN10tr'] }),-->
+<!--                        headers: {-->
+<!--                            'Content-Type': 'application/json',-->
+<!--                            'Authorization': `Bearer ${token}`-->
+<!--                        },-->
+<!--                    });-->
+<!--                });-->
+
+<!--                // Not Ready-->
+<!--                player.addListener('not_ready', ({ device_id }) => {-->
+<!--                    console.log('Device ID has gone offline', device_id);-->
+<!--                });-->
+
+<!--                // Connect to the player!-->
+<!--                player.connect();-->
+<!--            };-->
+<!--        </script>-->
+
     </body>
 </html>
