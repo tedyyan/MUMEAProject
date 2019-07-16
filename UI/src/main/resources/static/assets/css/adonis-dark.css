@@ -4402,7 +4402,7 @@ select.form-control:focus::-ms-value {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1200; }
+    z-index: 1049; }
   .adonis-player-wrap.player-fixed-bottom, .adonis-playlist-player.player-fixed-bottom {
     position: fixed;
     width: 100%;

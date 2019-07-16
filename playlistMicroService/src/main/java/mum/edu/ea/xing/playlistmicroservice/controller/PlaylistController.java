@@ -34,14 +34,14 @@ public class PlaylistController {
     }
 
     @PostMapping("/")
-    public RedirectView savePlaylist(Playlist playlist) {
+    public RedirectView savePlaylist(@RequestBody Playlist playlist) {
         playlistService.save(playlist);
         return  new RedirectView("/playlist/" + playlist.getId());
     }
 
 
 
-    @PostMapping("/{p_id}")
+    @PostMapping("/addSongToPlaylist/{p_id}")
     public RedirectView sageSong(@PathVariable Long p_id, Song song) {
         Song s = songService.get(song.getId());
         Playlist p =  playlistService.get(p_id);
