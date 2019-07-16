@@ -34,4 +34,16 @@ spring:
         predicates:
         - Path=/organization/**
         filters:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8111
         
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
