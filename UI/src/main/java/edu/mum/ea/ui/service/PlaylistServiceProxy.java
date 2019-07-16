@@ -1,6 +1,9 @@
 package edu.mum.ea.ui.service;
 
+import java.net.URI;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,6 +32,16 @@ public class PlaylistServiceProxy {
 	
 	public Playlist get(Long id) {
         return restTemplate.getForObject(playlistUrl, Playlist.class, id);
+    }
+	
+	public void add(Playlist p) {
+        URI uri = restTemplate.postForLocation(playlistsUrl, p);
+        if (uri == null) {
+            return;
+        }
+        Matcher m = Pattern.compile(".*/playlist/(\\d+)").matcher(uri.getPath());
+        m.matches();
+        m.group(1);
     }
 
 }
