@@ -1,4 +1,6 @@
 target/
+.idea/
+songsMicroService.iml
 # Compiled class file
 *.class
 

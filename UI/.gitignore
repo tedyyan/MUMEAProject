@@ -1,8 +1,11 @@
 target/
 .settings/
+.idea/
 
 .classpath
 .project
+
+mumitify.iml
 
 src/main/resources/templates/index.html
 src/main/resources/templates/callback.html

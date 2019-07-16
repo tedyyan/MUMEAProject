@@ -14,19 +14,19 @@ import java.util.Set;
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 public class Playlist {
-    public interface PlaylistSimpleView{};
-    public interface PlaylistDetailView extends PlaylistSimpleView{};
+//    public interface PlaylistSimpleView{};
+//    public interface PlaylistDetailView extends PlaylistSimpleView{};
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(PlaylistSimpleView.class)
+//    @JsonView(PlaylistSimpleView.class)
     private Long id;
 
-    @JsonView(PlaylistSimpleView.class)
+//    @JsonView(PlaylistSimpleView.class)
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonView(PlaylistDetailView.class)
+//    @JsonView(PlaylistDetailView.class)
     private Set<Song> songs = new HashSet<Song>();
 
 }
