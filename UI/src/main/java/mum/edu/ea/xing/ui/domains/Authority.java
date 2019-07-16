@@ -1,4 +1,4 @@
-package edu.mum.ea.ui.domains;
+package mum.edu.ea.xing.ui.domains;
 
 import lombok.Data;
 
@@ -8,6 +8,6 @@ import java.util.List;
 public class Authority {
     private Long id;
 
-    private AuthorityType AuthName;
+    private edu.mum.ea.xing.ui.domains.AuthorityType AuthName;
 
 }

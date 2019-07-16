@@ -1,6 +1,6 @@
-package edu.mum.ea.ui.service;
+package mum.edu.ea.xing.ui.service;
 
-import edu.mum.ea.ui.domains.Account;
+import mum.edu.ea.xing.ui.domains.Account;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.security.core.GrantedAuthority;

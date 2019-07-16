@@ -1,4 +1,4 @@
-package edu.mum.ea.ui.domains;
+package mum.edu.ea.xing.ui.domains;
 
 import lombok.Data;
 
