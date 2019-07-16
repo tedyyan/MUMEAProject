@@ -1,5 +1,7 @@
 package edu.mum.ea.ui.controllers;
 
+import edu.mum.ea.ui.service.SongsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
+    @Autowired
+    private SongsService songsService;
+
     @GetMapping("/")
     public String indexPage(Model model) {
+        model.addAttribute("currentSong",songsService.getCurrentlyPlayingTrack());
         return "home";
     }
 
@@ -18,7 +24,8 @@ public class MainController {
     }
 
     @GetMapping("/songs")
-    public String songsPage(Model model) {
+    public String songsPage(Model model){
+        model.addAttribute("songs",songsService.getTracks());
         return "parts/library/songs";
     }
 

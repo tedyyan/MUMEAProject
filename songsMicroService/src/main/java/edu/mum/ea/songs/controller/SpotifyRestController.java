@@ -1,94 +1,158 @@
 package edu.mum.ea.songs.controller;
 
+import com.google.gson.JsonParser;
 import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
+import com.wrapper.spotify.model_objects.credentials.AuthorizationCodeCredentials;
+import com.wrapper.spotify.model_objects.miscellaneous.CurrentlyPlaying;
+import com.wrapper.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
 import com.wrapper.spotify.model_objects.specification.Paging;
 import com.wrapper.spotify.model_objects.specification.SavedTrack;
 import com.wrapper.spotify.requests.data.library.GetUsersSavedTracksRequest;
-import edu.mum.ea.songs.util.LoggingRequestInterceptor;
+import com.wrapper.spotify.requests.data.player.GetUsersCurrentlyPlayingTrackRequest;
+import com.wrapper.spotify.requests.data.player.PauseUsersPlaybackRequest;
+import edu.mum.ea.songs.model.Image;
+import edu.mum.ea.songs.model.Song;
+import edu.mum.ea.songs.model.SpotifyToken;
+import edu.mum.ea.songs.util.SpotifyUtil;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.ui.Model;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(value = "http://localhost:8080")
 public class SpotifyRestController {
 
-
-    @PostMapping("/login")
-    public AuthResponse login(Model model) {
-        RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
-        List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
-        interceptors.add(new LoggingRequestInterceptor());
-        restTemplate.setInterceptors(interceptors);
-
-        String clientId = "9bb4d61b35974a86a44f82ece4a09086";
-        String clientSecret = "469e4131940745a69f828df081275ec4";
-
-        StringBuilder builder = new StringBuilder();
-        builder.append(clientId);
-        builder.append(":");
-        builder.append(clientSecret);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        headers.add("Authorization", "Basic " + Base64.getEncoder().encodeToString(builder.toString().getBytes()));
-
-        MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
-        map.add("grant_type", "client_credentials");
-
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-
-        AuthResponse authResponse = restTemplate.postForObject("https://accounts.spotify.com/api/token",
-                request,AuthResponse.class);
-        return authResponse;
+    @GetMapping("/refreshToken")
+    public SpotifyToken refreshToken(){
+        return new SpotifyToken(SpotifyUtil.spotifyApi().getAccessToken(),SpotifyUtil.spotifyApi().getRefreshToken());
     }
 
-    @GetMapping("getSongsTracks/{accessToken}")
-    public Paging<SavedTrack> getSongsTracks(@PathVariable String accessToken){
-
-        SpotifyApi spotifyApi = new SpotifyApi.Builder()
-                .setAccessToken(accessToken)
-                .build();
-        GetUsersSavedTracksRequest getUsersSavedTracksRequest = spotifyApi.getUsersSavedTracks()
-//          .limit(10)
-//          .offset(0)
-          .market(CountryCode.US)
-                .build();
+    @GetMapping("/getSongsTracks")
+    public List<Song> getSongsTracks(){
         try {
-            final Paging<SavedTrack> savedTrackPaging = getUsersSavedTracksRequest.execute();
+            GetUsersSavedTracksRequest getUsersSavedTracksRequest = SpotifyUtil.spotifyApi().getUsersSavedTracks()
+                    .limit(50)
+//          .offset(0)
+                    .market(CountryCode.US)
+                    .build();
+
+            Paging<SavedTrack> savedTrackPaging = getUsersSavedTracksRequest.execute();
 
             System.out.println("Total: " + savedTrackPaging.getTotal());
-            return savedTrackPaging;
+            System.out.println("Total items: " + savedTrackPaging.getItems().length);
+
+            List<Song> songList = Arrays.stream(savedTrackPaging.getItems()).map(savedTrack ->
+                    new Song(savedTrack.getTrack().getId(),savedTrack.getTrack().getArtists()[0].getName(),
+                            savedTrack.getTrack().getName(),
+                            new Image(savedTrack.getTrack().getAlbum().getImages()[0].getHeight(),savedTrack.getTrack().getAlbum().getImages()[0].getUrl(),savedTrack.getTrack().getAlbum().getImages()[0].getWidth()),
+                            savedTrack.getTrack().getUri(),
+                            savedTrack.getTrack().getDurationMs()))
+                    .collect(Collectors.toList());
+
+            return songList;
         } catch (IOException | SpotifyWebApiException e) {
             System.out.println("Error: " + e.getMessage());
             return null;
         }
     }
-}
 
-@Getter
-@Setter
-class AuthResponse {
-    private String access_token;
-    private String token_type;
-    private String expires_in;
+    @GetMapping("/getCurrentlyPlayingTrack")
+    public Song getCurrentlyPlayingTrack(){
+        try {
+            CurrentlyPlayingContext playing = SpotifyUtil.spotifyApi()
+                    .getInformationAboutUsersCurrentPlayback().market(CountryCode.US).build().execute();
+            if(playing!=null){
+                System.out.println("Timestamp: " + playing.getTimestamp());
+
+                Song song = new Song(playing.getItem().getId(),
+                        playing.getItem().getArtists()[0].getName(),
+                        playing.getItem().getName(),
+                        new Image(playing.getItem().getAlbum().getImages()[0].getHeight(),playing.getItem().getAlbum().getImages()[0].getUrl(),
+                                playing.getItem().getAlbum().getImages()[0].getWidth()),
+                        playing.getItem().getUri(),
+                        playing.getIs_playing(),
+                        playing.getItem().getDurationMs(),
+                        playing.getProgress_ms());
+                return song;
+            }
+            return new Song();
+        } catch (IOException | SpotifyWebApiException e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
+    }
+
+    @PutMapping("/pauseTrack/{deviceId}")
+    public String pauseTrack(@PathVariable String deviceId){
+        try {
+            return SpotifyUtil.spotifyApi().pauseUsersPlayback()
+                    .device_id(deviceId).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PutMapping("/playTrack/{deviceId}")
+    public String playTrack(@PathVariable String deviceId,@RequestBody Song song){
+        try {
+            return SpotifyUtil.spotifyApi().startResumeUsersPlayback()
+                    .device_id(deviceId)
+                    .uris(new JsonParser().parse("[\""+song.getUri()+"\"]").getAsJsonArray()).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PostMapping("/nextTrack/{deviceId}")
+    public String nextTrack(@PathVariable String deviceId){
+        try {
+            return SpotifyUtil.spotifyApi().skipUsersPlaybackToNextTrack()
+                    .device_id(deviceId).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PostMapping("/previousTrack/{deviceId}")
+    public String previousTrack(@PathVariable String deviceId){
+        try {
+            return SpotifyUtil.spotifyApi().skipUsersPlaybackToPreviousTrack()
+                    .device_id(deviceId).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PostMapping("/shuffleTrack/{deviceId}/{state}")
+    public String shuffleTrack(@PathVariable String deviceId,@PathVariable boolean state){
+        try {
+            return SpotifyUtil.spotifyApi().toggleShuffleForUsersPlayback(state)
+                    .device_id(deviceId).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @PutMapping("/repeatTrack/{deviceId}/{state}")
+    public String repeatTrack(@PathVariable String deviceId,@PathVariable String state){
+        try {
+            return SpotifyUtil.spotifyApi().setRepeatModeOnUsersPlayback(state)
+                    .device_id(deviceId).build().execute();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }
