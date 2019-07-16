@@ -11,3 +11,18 @@ logging:
     root: INFO
   pattern: 
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    
+spring:    
+  boot:
+    admin:
+      client:
+        url: http://localhost:8111
+        
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
