@@ -1,6 +1,8 @@
 package mum.edu.ea.xing.ui.service;
 
+import mum.edu.ea.xing.ui.client.AccountClient;
 import mum.edu.ea.xing.ui.domains.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,17 +13,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class AccountService implements UserDetailsService {
-    private static final String BASE_URL = "http://localhost:8090/account/{userName}";
+
+    @Autowired
+    private AccountClient accountClient;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(new SimpleClientHttpRequestFactory()));
 
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         List<GrantedAuthority> authorities = new ArrayList<>();
@@ -36,7 +41,7 @@ public class AccountService implements UserDetailsService {
             return new User("user", encoder.encode("bla"), authorities);
         }
         // TODO end
-        Account account = restTemplate.getForObject(BASE_URL, Account.class, userName);
+        Account account = accountClient.findByUserName(userName);
         authorities.add(new SimpleGrantedAuthority("ROLE_" + account.getAuthority().getAuthName().getName()));
 
         return new User(account.getUserName(), encoder.encode(account.getPassword()), authorities);

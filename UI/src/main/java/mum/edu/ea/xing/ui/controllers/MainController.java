@@ -1,6 +1,6 @@
 package mum.edu.ea.xing.ui.controllers;
 
-import mum.edu.ea.xing.ui.service.SongsService;
+import mum.edu.ea.xing.ui.client.SongClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @Autowired
-    private SongsService songsService;
+    private SongClient songClient;
 
     @GetMapping("/")
     public String indexPage(Model model) {
-        model.addAttribute("currentSong",songsService.getCurrentlyPlayingTrack());
+        model.addAttribute("accessToken",songClient.refreshToken());
+        model.addAttribute("currentSong",songClient.getCurrentlyPlayingTrack());
         return "home";
     }
 
@@ -25,7 +26,7 @@ public class MainController {
 
     @GetMapping("/songs")
     public String songsPage(Model model){
-        model.addAttribute("songs",songsService.getTracks());
+        model.addAttribute("songs",songClient.getTracks());
         return "parts/library/songs";
     }
 
