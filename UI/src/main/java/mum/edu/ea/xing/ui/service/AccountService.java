@@ -2,6 +2,8 @@ package mum.edu.ea.xing.ui.service;
 
 import mum.edu.ea.xing.ui.client.AccountClient;
 import mum.edu.ea.xing.ui.domains.Account;
+import mum.edu.ea.xing.ui.domains.Authority;
+import mum.edu.ea.xing.ui.domains.AuthorityType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -42,8 +44,15 @@ public class AccountService implements UserDetailsService {
         }
         // TODO end
         Account account = accountClient.findByUserName(userName);
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + account.getAuthority().getAuthName().getName()));
-
+        for(Authority a : account.getAuthorityList()) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + a.getAuthName().getName()));
+        }
         return new User(account.getUserName(), encoder.encode(account.getPassword()), authorities);
+    }
+
+    public void saveAccount(Account account) {
+        account.setAuthorityList(new ArrayList<>());
+        account.getAuthorityList().add(new Authority(0L, AuthorityType.ADMIN));
+        accountClient.saveAccount(account);
     }
 }

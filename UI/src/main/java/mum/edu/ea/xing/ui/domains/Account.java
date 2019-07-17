@@ -2,6 +2,8 @@ package mum.edu.ea.xing.ui.domains;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Account {
     private Long id;
@@ -9,6 +11,6 @@ public class Account {
     private String userName;
     private String password;
     private String email;
-    Authority authority;
+    List<Authority> authorityList;
 
 }

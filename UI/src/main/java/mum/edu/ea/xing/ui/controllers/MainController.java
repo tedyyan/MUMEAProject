@@ -1,16 +1,25 @@
 package mum.edu.ea.xing.ui.controllers;
 
 import mum.edu.ea.xing.ui.client.SongClient;
+import mum.edu.ea.xing.ui.domains.Account;
+import mum.edu.ea.xing.ui.domains.Playlist;
+import mum.edu.ea.xing.ui.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class MainController {
 
     @Autowired
     private SongClient songClient;
+    @Autowired
+    private AccountService accountService;
 
     @GetMapping("/")
     public String indexPage(Model model) {
@@ -22,6 +31,16 @@ public class MainController {
     @GetMapping("/login")
     public String loginPage(Model model) {
         return "login";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model) {
+        return "register";
+    }
+    @PostMapping("/register")
+    public String registerPost(@Valid @ModelAttribute Account account, Model model) {
+        accountService.saveAccount(account);
+        return "redirect:login";
     }
 
     @GetMapping("/songs")

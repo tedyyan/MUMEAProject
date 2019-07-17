@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/layout}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -11,9 +11,9 @@
 
         <div class="row" style="margin-top:20px">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <form th:action="@{/login}" method="post">
+                <form th:action="@{/register}" method="post">
                     <fieldset>
-                        <h1>Please Sign In</h1>
+                        <h1>Please Input</h1>
 
                         <div th:if="${param.error}">
                             <div class="alert alert-danger">
@@ -27,28 +27,32 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="username" id="username" class="form-control input-lg"
+                            <input type="text" name="userName" id="userName" class="form-control input-lg"
                                    placeholder="UserName" required="true" autofocus="true"/>
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" id="password" class="form-control input-lg"
                                    placeholder="Password" required="true"/>
                         </div>
+                        <div class="form-group">
+                            <input type="password" name="email" id="email" class="form-control input-lg"
+                                   placeholder="Email" required="true"/>
+                        </div>
 
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
-                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign In"/>
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Register"/>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
-                                <a class="btn btn-lg btn-primary btn-block" onclick="window.location = '/register';">register</a>
+
                             </div>
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
-
     </div>
+
     <!-- /content area -->
 </div>
 </body>
