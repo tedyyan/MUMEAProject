@@ -42,7 +42,13 @@ public class MainController {
 
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute Account account, Model model) {
-        accountService.saveAccount(account);
+        Account checkAccount = accountService.findAccount(account.getUserName());
+        if (checkAccount != null) {
+            model.addAttribute("error","error");
+            return "register";
+        } else {
+            accountService.saveAccount(account);
+        }
         return "redirect:login";
     }
 

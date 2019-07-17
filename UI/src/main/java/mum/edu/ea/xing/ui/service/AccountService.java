@@ -55,4 +55,8 @@ public class AccountService implements UserDetailsService {
         account.getAuthorityList().add(new Authority(null, AuthorityType.USER));
         accountClient.saveAccount(account);
     }
+
+    public Account findAccount(String userName) {
+        return accountClient.findByUserName(userName);
+    }
 }
