@@ -34,14 +34,14 @@ public class AccountService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
         // TODO start just for test
-        if (userName.equals("admin")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            return new User("admin", encoder.encode("123"), authorities);
-        } else if (userName.equals("user")) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-            return new User("user", encoder.encode("bla"), authorities);
-        }
+//        if (userName.equals("admin")) {
+//            authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+//            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+//            return new User("admin", encoder.encode("123"), authorities);
+//        } else if (userName.equals("user")) {
+//            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+//            return new User("user", encoder.encode("bla"), authorities);
+//        }
         // TODO end
         Account account = accountClient.findByUserName(userName);
         for(Authority a : account.getAuthorityList()) {
