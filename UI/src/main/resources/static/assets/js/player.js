@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
     var deviceId = null;
     var spotity =  window.onSpotifyWebPlaybackSDKReady = async () => {
 
-        const response = await fetch('/refreshToken');
+        const response = await fetch('http://172.19.144.168:9090/refreshToken');
         const token = await response.json();
         const accessToken = token.accessToken;
 
@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
             console.log('success');
         }
 
-        const current = await fetch('/getCurrentlyPlayingTrack');
+        const current = await fetch('http://172.19.144.168:9090/getCurrentlyPlayingTrack');
         const trackResponse = await current.json();
 
         adonisPlayer.init = function(){
