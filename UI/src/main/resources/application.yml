@@ -12,3 +12,8 @@
 
 server:
   port: 3200
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
