@@ -52,7 +52,7 @@ public class AccountService implements UserDetailsService {
 
     public void saveAccount(Account account) {
         account.setAuthorityList(new ArrayList<>());
-        account.getAuthorityList().add(new Authority(0L, AuthorityType.ADMIN));
+        account.getAuthorityList().add(new Authority(1L, AuthorityType.USER));
         accountClient.saveAccount(account);
     }
 }
