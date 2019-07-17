@@ -4,10 +4,13 @@ import mum.edu.ea.xing.ui.client.SongClient;
 import mum.edu.ea.xing.ui.domains.SpotifyToken;
 import mum.edu.ea.xing.ui.model.Song;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import javax.servlet.http.HttpSession;
+
+@Controller
 public class SongController {
 
     @Autowired
@@ -18,7 +21,18 @@ public class SongController {
         return songClient.refreshToken();
     }
 
-    @GetMapping("/getCurrentlyPlayingTrack")
+    @PostMapping(value = "/setDeviceId/{deviceId}",consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String setDeviceId(@PathVariable String deviceId, HttpSession session){
+        session.setAttribute("deviceId",deviceId);
+        return deviceId;
+    }
+
+    @GetMapping("/getDeviceId")
+    public String getDeviceId(HttpSession session){
+        return (String) session.getAttribute("deviceId");
+    }
+
+    @GetMapping(value = "/getCurrentlyPlayingTrack")
     public Song getCurrentlyPlayingTrack(){
         return songClient.getCurrentlyPlayingTrack();
     }
@@ -28,9 +42,9 @@ public class SongController {
         return songClient.previousTrack(deviceId);
     }
 
-    @PutMapping("/playTrack/{deviceId}")
-    public String playTrack(@PathVariable String deviceId,@RequestBody Song song){
-        return songClient.playTrack(deviceId,song);
+    @PutMapping(value = "/playTrack/{deviceId}/{songIndex}",consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String playTrack(@PathVariable String deviceId,@PathVariable String songIndex,@RequestBody Song song){
+        return songClient.playTrack(deviceId,song,songIndex);
     }
 
     @PostMapping("/nextTrack/{deviceId}")

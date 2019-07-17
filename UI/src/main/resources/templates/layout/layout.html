@@ -9,6 +9,8 @@
         <title>Adonis Demo-01 | Home</title>
         <link rel="shortcut icon" href="favicon.ico">
         <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+        <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+        <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
 
         <link rel="apple-touch-icon" sizes="180x180" th:href="@{/assets/icon/apple-touch-icon.png}">
         <link rel="icon" type="image/png" sizes="32x32" th:href="@{/assets/icon/favicon-32x32.png}">
@@ -22,6 +24,48 @@
         <link th:href="@{/assets/vendors/owl/css/owl.carousel.min.css}" rel="stylesheet">
         <link th:href="@{/assets/vendors/perfect-scrollbar/css/perfect-scrollbar.css}" rel="stylesheet">
         <link th:href="@{/assets/css/adonis-dark.css}" rel="stylesheet">
+        <script th:src="@{/assets/vendors/jquery/jquery.min.js}"></script>
+
+        <script type="text/javascript">
+            var token = $('#_csrf').attr('content');
+            var header = $('#_csrf_header').attr('content');
+
+            var deviceId = localStorage.getItem('deviceId');
+
+            function playTrack(index) {
+                console.log(index);
+                var songURL = document.getElementById('songURI'+index).value;
+                console.log(songURL);
+                fetch(`http://172.19.144.168:9090/playTrack/${deviceId}`+'/'+index,
+                    {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json',header:token},
+                        body: JSON.stringify({ uri: songURL})
+                        //body: JSON.stringify({ uris: [trackURI] })
+                    }
+                );
+            }
+
+            function nextTrack() {
+                fetch(`http://172.19.144.168:9090/nextTrack/${deviceId}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json',header:token},
+                        //body: JSON.stringify({ uris: [trackURI] })
+                    }
+                );
+            }
+
+            function previousTrack() {
+                fetch(`http://172.19.144.168:9090/previousTrack/${deviceId}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json',header:token},
+                        //body: JSON.stringify({ uris: [trackURI] })
+                    }
+                );
+            }
+        </script>
     </head>
     <body>
         <div id="wrap" class="light main-wrap clearfix">
@@ -1318,7 +1362,6 @@
         <!-- Bootstrap core JavaScript
 ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script th:src="@{/assets/vendors/jquery/jquery.min.js}"></script>
         <script th:src="@{/assets/vendors/bootstrap/js/popper.min.js}"></script>
         <script th:src="@{/assets/vendors/bootstrap/js/bootstrap.min.js}"></script>
         <script th:src="@{/assets/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
@@ -1396,11 +1439,11 @@
 <!--                };-->
 <!--            };-->
 <!--        </script>-->
-<!--        <script src="https://sdk.scdn.co/spotify-player.js"></script>-->
+        <script src="https://sdk.scdn.co/spotify-player.js"></script>
         <!--<script th:src="@{/assets/js/app-all.js}"></script>
 -->
         <script th:src="@{/assets/js/bootstrap-hover-menu.js}"></script>
-<!--        <script th:src="@{/assets/js/player.js}"></script>-->
+        <script th:src="@{/assets/js/player.js}"></script>
         <script th:src="@{/assets/js/viewport.js}"></script>
         <script th:src="@{/assets/js/effects.js}"></script>
         <script th:src="@{/assets/js/dropdown-menu.js}"></script>

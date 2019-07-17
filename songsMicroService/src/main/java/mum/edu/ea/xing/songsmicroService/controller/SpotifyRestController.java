@@ -1,5 +1,8 @@
 package mum.edu.ea.xing.songsmicroService.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;
@@ -19,6 +22,7 @@ import mum.edu.ea.xing.songsmicroService.model.SpotifyToken;
 import mum.edu.ea.xing.songsmicroService.util.SpotifyUtil;
 import lombok.Getter;
 import lombok.Setter;
+import org.json.simple.JSONArray;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -101,12 +105,17 @@ public class SpotifyRestController {
         }
     }
 
-    @PutMapping("/playTrack/{deviceId}")
-    public String playTrack(@PathVariable String deviceId,@RequestBody Song song){
+    @PutMapping("/playTrack/{deviceId}/{index}")
+    public String playTrack(@PathVariable String deviceId,@RequestBody Song song,@PathVariable String index){
         try {
+
+            JsonArray jsonArray = new JsonArray();
+            getSongsTracks().stream().forEach(song1 -> jsonArray.add(song1.getUri()));
+            JsonObject offset = new JsonObject();
+            offset.add("position",new Gson().toJsonTree(index));
             return SpotifyUtil.spotifyApi().startResumeUsersPlayback()
                     .device_id(deviceId)
-                    .uris(new JsonParser().parse("[\""+song.getUri()+"\"]").getAsJsonArray()).build().execute();
+                    .uris(jsonArray).offset(offset).build().execute();
         }catch (Exception ex){
             ex.printStackTrace();
             return null;

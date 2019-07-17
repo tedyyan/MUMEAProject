@@ -19,8 +19,8 @@ public interface SongClient {
     @GetMapping("/refreshToken")
     SpotifyToken refreshToken();
 
-    @PutMapping("/playTrack/{deviceId}")
-    String playTrack(@PathVariable String deviceId, @RequestBody Song song);
+    @PutMapping("/playTrack/{deviceId}/{index}")
+    String playTrack(@PathVariable String deviceId, @RequestBody Song song,@PathVariable String index);
 
     @PostMapping("/nextTrack/{deviceId}")
     public String nextTrack(@PathVariable String deviceId);
