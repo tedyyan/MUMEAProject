@@ -62,7 +62,7 @@ public class MainController {
     public String logout(Model model, HttpSession httpSession) {
         SecurityContextHolder.clearContext();
         httpSession.invalidate();
-        return "login";
+        return "redirect:login";
     }
 
     @GetMapping("/songs")
