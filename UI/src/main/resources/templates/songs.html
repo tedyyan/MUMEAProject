@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}" xmlns:th="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Index Page</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div th:replace="parts/library/playlist/new-playlist :: newPlaylist"> newPlaylistZ</div>
+    <div th:replace="parts/library/player :: player">player</div>
+    <div id="site-content">
+        <section>
+            <div class="d-flex flex-row">
+                <div class="title-box">
+                    <h2 class="title">All Songs</h2>
+                </div>
+            </div>
+            <div class="row auto-fit-columns" data-item-width="330" data-item-max-width="630">
+                <div class="col-auto" th:each="song: ${songs}">
+                    <div class="img-box-horizontal music-img-box h-g-bg h-d-shadow">
+                        <div class="img-box img-box-sm box-rounded-sm">
+                            <img th:src="${song.image.url}" alt="">
+                        </div>
+                        <div class="des">
+                            <h6 class="title"><a href="#" th:text="${song.name}"></a></h6>
+                            <p class="sub-title"><a href="#" th:text="${song.artist}"></a></p>
+                        </div>
+                        <div class="hover-state d-flex justify-content-between align-items-center">
+                            <span class="pointer play-btn-dark box-rounded-sm"><i class="play-icon"></i></span>
+                            <div class="d-flex align-items-center">
+                                <span class="adonis-icon text-light pointer mr-2 icon-2x"><svg xmlns="http://www.w3.org/2000/svg" version="1.1"><use xlink:href="#icon-heart-blank"></use></svg></span>
+                                <span class="pointer dropdown-menu-toggle"><span class="icon-dot-nav-horizontal text-light"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-e-20 mb-e-md-40"></div>
+        </section>
+    </div>
+</div>
+</body>
+</html>
