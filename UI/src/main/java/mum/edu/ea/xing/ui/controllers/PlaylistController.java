@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import mum.edu.ea.xing.ui.domains.Playlist;
 
@@ -19,7 +20,7 @@ public class PlaylistController {
     @Autowired
     private SongClient songClient;
 	
-	@GetMapping
+	@GetMapping(value = {"","/"})
     public String playlistPage(Model model) {
 		model.addAttribute("playlist", new Playlist());
 		model.addAttribute("list", playlistClient.getAll());
@@ -34,12 +35,10 @@ public class PlaylistController {
     }
 	
 	@PostMapping(value = "/savePlaylist")
-	@ResponseBody
-	public Playlist savePlaylist(@ModelAttribute String name, Model model) {
-		System.out.println(name);
-		Playlist playlist = new Playlist();
-		playlist.setName(name);
+	public String savePlaylist(Playlist playlist, Model model) {
+		System.out.println("2222222222");
+		System.out.println(playlist.getName());
 		playlistClient.add(playlist);
-		return playlist;
+		return "redirect:/playlist";
 	}
 }
