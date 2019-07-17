@@ -44,6 +44,9 @@ public class AccountService implements UserDetailsService {
 //        }
         // TODO end
         Account account = accountClient.findByUserName(userName);
+        if (account == null) {
+            return null;
+        }
         if (account.getAuthorityList() != null) {
             for(Authority a : account.getAuthorityList()) {
                 authorities.add(new SimpleGrantedAuthority("ROLE_" + a.getAuthName().getName()));
