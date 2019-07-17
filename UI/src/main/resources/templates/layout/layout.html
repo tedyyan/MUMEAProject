@@ -36,7 +36,7 @@
                 console.log(index);
                 var songURL = document.getElementById('songURI'+index).value;
                 console.log(songURL);
-                fetch(`http://172.19.144.168:9090/playTrack/${deviceId}`+'/'+index,
+                fetch(`http://localhost:9090/playTrack/${deviceId}`+'/'+index,
                     {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json',header:token},
@@ -47,7 +47,7 @@
             }
 
             function nextTrack() {
-                fetch(`http://172.19.144.168:9090/nextTrack/${deviceId}`,
+                fetch(`http://localhost:9090/nextTrack/${deviceId}`,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json',header:token},
@@ -57,7 +57,7 @@
             }
 
             function previousTrack() {
-                fetch(`http://172.19.144.168:9090/previousTrack/${deviceId}`,
+                fetch(`http://localhost:9090/previousTrack/${deviceId}`,
                     {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json',header:token},

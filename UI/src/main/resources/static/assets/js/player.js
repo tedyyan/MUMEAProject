@@ -1,6 +1,6 @@
 var deviceId = null;
 window.onSpotifyWebPlaybackSDKReady = async () => {
-    const response = await fetch('http://172.19.144.168:9090/refreshToken');
+    const response = await fetch('http://localhost:9090/refreshToken');
     const token = await response.json();
     const accessToken = token.accessToken;
 

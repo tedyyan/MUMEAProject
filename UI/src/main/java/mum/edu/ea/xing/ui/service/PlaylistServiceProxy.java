@@ -19,8 +19,8 @@ public class PlaylistServiceProxy {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String playlistsUrl = "http://172.19.144.168:7071/serverPlaylist/";
-    private final String playlistUrl = "http://172.19.144.168:7071/serverPlaylist/{id}";
+    private final String playlistsUrl = "http://localhost:7071/serverPlaylist/";
+    private final String playlistUrl = "http://localhost:7071/serverPlaylist/{id}";
 
     public List<Playlist> getAll() {
         ResponseEntity<List<Playlist>> response =

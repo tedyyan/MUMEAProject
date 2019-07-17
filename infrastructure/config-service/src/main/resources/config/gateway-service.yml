@@ -34,6 +34,28 @@ spring:
         predicates:
         - Path=/organization/**
         filters:
+        
+      - id: playlist-service
+        uri: lb://playlist-service
+        predicates:
+        - Path=/playlist/**
+        filters:  
+        - RewritePath=/playlist/(?<path>.*), /$\{path}
+        
+        
+      - id: song-service
+        uri: lb://songs-service
+        predicates:
+        - Path=/songs/**
+        filters:  
+        - RewritePath=/songs/(?<path>.*), /$\{path}
+        
+      - id: account-service
+        uri: lb://account-service
+        predicates:
+        - Path=/account/**
+        filters:  
+        - RewritePath=/account/(?<path>.*), /$\{path}
   boot:
     admin:
       client:

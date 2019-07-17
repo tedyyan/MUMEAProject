@@ -12,12 +12,26 @@ public class Sender implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		while (true) {
-			String queue = "default";
-			String msg = "Hello World!";
-			template.convertAndSend(queue, msg);
-			System.out.println("Sent: " + msg + " to: " + queue);
-			Thread.sleep(5000);
-		}
+//		Runnable a = new Runnable() {
+//
+//			@Override
+//			public void run() {
+//
+//				while (true) {
+//					String queue = "default";
+//					String msg = "Hello World!";
+//					template.convertAndSend(queue, msg);
+//					System.out.println("Sent: " + msg + " to: " + queue);
+//					try {
+//						Thread.sleep(5000);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//				
+//			}
+//		};
+//		a.run();
 	}
 }

@@ -24,6 +24,7 @@ public class PlaylistController {
     @GetMapping("/")
 //    @JsonView(Playlist.PlaylistSimpleView.class)
     public List<Playlist> getAllList() {
+    	System.out.println("--------------------------------------------------------");
         return playlistService.getAll();
     }
 

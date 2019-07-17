@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,9 @@ import pl.piomin.services.employee.repository.EmployeeRepository;
 public class EmployeeController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
-	
+
+	@Autowired
+	private RabbitTemplate template;
 	@Autowired
 	EmployeeRepository repository;
 	
@@ -45,6 +48,9 @@ public class EmployeeController {
 	
 	@GetMapping("/")
 	public List<Employee> findAll() {
+		String queue = "default";
+		String msg = "Employee find";
+		template.convertAndSend(queue, msg);
 		LOGGER.info("Employee find");
 		return repository.findAll();
 	}

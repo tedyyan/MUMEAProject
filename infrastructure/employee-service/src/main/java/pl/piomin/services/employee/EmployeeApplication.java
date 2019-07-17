@@ -1,5 +1,6 @@
 package pl.piomin.services.employee;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -27,6 +28,11 @@ public class EmployeeApplication extends WebMvcConfigurationSupport{
 		SpringApplication.run(EmployeeApplication.class, args);
 	}
 
+	@Bean
+	public Queue hello() {
+		return new Queue("default");
+	}
+	
 	@Bean
 	public Docket swaggerPersonApi10() {
 		return new Docket(DocumentationType.SWAGGER_2)
