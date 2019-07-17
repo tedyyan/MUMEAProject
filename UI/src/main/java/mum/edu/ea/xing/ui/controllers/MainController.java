@@ -1,6 +1,7 @@
 package mum.edu.ea.xing.ui.controllers;
 
 import mum.edu.ea.xing.ui.client.SongClient;
+import mum.edu.ea.xing.ui.domains.Playlist;
 import mum.edu.ea.xing.ui.domains.Account;
 import mum.edu.ea.xing.ui.domains.Playlist;
 import mum.edu.ea.xing.ui.service.AccountService;
@@ -25,8 +26,10 @@ public class MainController {
 
     @GetMapping("/")
     public String indexPage(Model model) {
+        model.addAttribute("playlist", new Playlist());
         model.addAttribute("accessToken",songClient.refreshToken());
         model.addAttribute("currentSong",songClient.getCurrentlyPlayingTrack());
+        model.addAttribute("songs",songClient.getTracks());
         return "home";
     }
 
@@ -62,7 +65,7 @@ public class MainController {
     @GetMapping("/songs")
     public String songsPage(Model model){
         model.addAttribute("songs",songClient.getTracks());
-        return "parts/library/songs";
+        return "songs";
     }
 
     

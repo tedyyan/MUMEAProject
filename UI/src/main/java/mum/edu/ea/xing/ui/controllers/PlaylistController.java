@@ -3,13 +3,12 @@ package mum.edu.ea.xing.ui.controllers;
 import mum.edu.ea.xing.ui.client.PlaylistClient;
 import mum.edu.ea.xing.ui.client.SongClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import mum.edu.ea.xing.ui.domains.Playlist;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/playlist")
@@ -24,7 +23,7 @@ public class PlaylistController {
     public String playlistPage(Model model) {
 		model.addAttribute("playlist", new Playlist());
 		model.addAttribute("list", playlistClient.getAll());
-        return "parts/library/playlist";
+        return "playlist";
     }
 	
 	@GetMapping("/detail/{id}")
@@ -34,9 +33,13 @@ public class PlaylistController {
         return "parts/library/playlist/playlist-details";
     }
 	
-	@PostMapping("/")
-	public String savePlaylist(@Valid @ModelAttribute("playlist") Playlist playlist, Model model) {
+	@PostMapping(value = "/savePlaylist")
+	@ResponseBody
+	public Playlist savePlaylist(@ModelAttribute String name, Model model) {
+		System.out.println(name);
+		Playlist playlist = new Playlist();
+		playlist.setName(name);
 		playlistClient.add(playlist);
-		return "redirect:/playlist";
+		return playlist;
 	}
 }
