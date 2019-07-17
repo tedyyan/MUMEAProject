@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 public class Authority {
     @Id
+    @GeneratedValue
     private Long id;
 
     @Enumerated(EnumType.STRING)
