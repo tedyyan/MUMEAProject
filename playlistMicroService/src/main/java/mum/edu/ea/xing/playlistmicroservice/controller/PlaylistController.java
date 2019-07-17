@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
 @RestController
-@RequestMapping("/playlist")
+@RequestMapping("/serverPlaylist")
 public class PlaylistController {
     @Autowired
     private PlaylistService playlistService;

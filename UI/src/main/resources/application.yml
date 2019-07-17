@@ -17,3 +17,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8061/eureka/
+
+feign:
+  http3:
+    enabled: true

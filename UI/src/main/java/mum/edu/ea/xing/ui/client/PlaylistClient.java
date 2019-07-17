@@ -11,12 +11,12 @@ import java.util.List;
 @FeignClient(name = "playlist-service")
 public interface PlaylistClient {
 
-    @GetMapping("/playlist/")
+    @GetMapping("/serverPlaylist/")
     public List<Playlist> getAll() ;
 
-    @GetMapping("/playlist/{id}")
+    @GetMapping("/serverPlaylist/{id}")
     public Playlist get(@PathVariable Long id) ;
 
-    @PostMapping("/playlist/")
+    @PostMapping("/serverPlaylist/")
     public Playlist add(@RequestBody Playlist playlist);
 }

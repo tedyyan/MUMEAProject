@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layout}" xmlns:th="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <title>Index Page</title>
-</head>
-<body>
-<div layout:fragment="content">
-    <div th:replace="parts/library/playlist/new-playlist :: newPlaylist"> newPlaylistZ</div>
-    <div th:replace="parts/library/player :: player">player</div>
-    <div id="site-content">
+<div id="site-content" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+     xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <div id="site-content-inner">
         <div class="album-wrap">
             <div class="album-cover-bg blur-bottom artist-bg-1"></div>
             <div class="master-container-fluid">
@@ -435,7 +427,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</body>
-</html>
+    </div><!--/#site-content-inner-->
+</div><!--/#site-content-->

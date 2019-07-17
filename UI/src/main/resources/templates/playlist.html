@@ -91,8 +91,7 @@
                             </div>
                         </div>
                         <h6 class="title">
-                            <a class="nav-link adonis-ajax-load m-item m-item-block" href="#"
-                               data-target="#library-playlist-details" data-content="playlist/detail/1">
+                            <a class="nav-link adonis-ajax-load m-item m-item-block" href="#" th:onclick="'javascript:window.location = /playlist/detail/' + ${playlist.id} + ';'">
                                 <span th:text="${playlist.name}"></span>
                             </a>
                         </h6>
