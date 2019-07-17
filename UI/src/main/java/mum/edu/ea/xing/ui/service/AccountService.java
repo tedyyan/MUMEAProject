@@ -44,8 +44,10 @@ public class AccountService implements UserDetailsService {
 //        }
         // TODO end
         Account account = accountClient.findByUserName(userName);
-        for(Authority a : account.getAuthorityList()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + a.getAuthName().getName()));
+        if (account.getAuthorityList() != null) {
+            for(Authority a : account.getAuthorityList()) {
+                authorities.add(new SimpleGrantedAuthority("ROLE_" + a.getAuthName().getName()));
+            }
         }
         return new User(account.getUserName(), encoder.encode(account.getPassword()), authorities);
     }

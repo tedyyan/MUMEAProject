@@ -201,7 +201,7 @@
                                     <div class="flex-row d-inline-flex">
                                         <div class="user"><img class="rounded-circle" th:src="@{/assets/images/user-thumb-1.jpg}"
                                                                alt=""></div>
-                                        <span class="ml-2 mt-2 fs-1 d-none d-lg-block">Jont Henrry</span>
+                                        <span class="ml-2 mt-2 fs-1 d-none d-lg-block" th:text="${session.userName}">Jont hennry</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right user-settings-dropdown clearfix"
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
                                     <div class="settings-bottom">
-                                        <h5 class="user-name text-center">Jont hennry</h5>
+                                        <h5 class="user-name text-center" th:text="${session.userName}">Jont hennry</h5>
                                         <ul class="user-settings-menu list-unstyled">
                                             <li>
                                                 <a href="#" onclick="window.location = '/logout';" class="inactive-color"><span class="adonis-icon mr-3 icon-2x"><svg
