@@ -34,7 +34,7 @@ public class AccountController {
     public Account findByUserName(@PathVariable("userName") String userName) {
         LOGGER.info("Account find: id={}", userName);
         Account a = accountRepository.findByUserName(userName);
-        a.getAuthorityList();
+//        a.getAuthorityList();
 //        LOGGER.info("Account find: id={}", a);
         return a;
     }
